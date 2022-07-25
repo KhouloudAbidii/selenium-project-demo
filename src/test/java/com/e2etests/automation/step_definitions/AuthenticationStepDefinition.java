@@ -16,6 +16,7 @@ public class AuthenticationStepDefinition {
 
 	}
 
+	/* Login */
 	@Given("je me connecte a l application OrangeHRM")
 	public void jeMeConnecteALApplicationOrangeHRM() {
 		authenticationPage.goToURL();
@@ -44,6 +45,22 @@ public class AuthenticationStepDefinition {
 	public void jeMeRedirigeVersLaPageHome(String msg) {
 		String message = AuthenticationPage.homePage.getText();
 		Assert.assertTrue(message.contains(msg));
+	}
+
+	/* Logout */
+
+	@When("je click sur l icone logout")
+	public void jeClickSurLIconeLogout() {
+
+		authenticationPage.clickOniconLogout();
+
+	}
+
+	@When("je click sur le bouton logout")
+	public void jeClickSurLeBoutonLogout() throws InterruptedException   {
+Thread.sleep(2000);
+		authenticationPage.clickOnbtnLogout();
+
 	}
 
 }
